@@ -2,7 +2,7 @@
 set -e
 
 echo "==> Initializing variables"
-export GRAFANA_VERSION="${GRAFANA_VERSION:=v3.1.0-beta1}"
+export GRAFANA_VERSION="${GRAFANA_VERSION:=v3.1.0}"
 export STATIC="${STATIC:=true}"
 export GOPATH="/go"
 export PATH="/go/bin:$PATH"

@@ -1,4 +1,4 @@
-VERSION = v3.1.0-beta1
+VERSION = v3.1.0
 STATIC = true
 
 all: clean build extract
