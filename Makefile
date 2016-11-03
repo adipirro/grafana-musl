@@ -1,11 +1,10 @@
-VERSION = v3.1.0
-STATIC = true
+BRANCH = master
 
 all: clean build extract
 
 build: builder
-	$(info ==> Building Grafana. Distribution will be in /dist directory of grafana-musl-$(VERSION) container)
-	docker run -i -t --name grafana-musl-$(VERSION) -e GRAFANA_VERSION=$(VERSION) -e STATIC=$(STATIC) grafana-musl-builder
+	$(info ==> Building Grafana. Distribution will be in /dist directory of grafana-musl-$(BRANCH) container)
+	docker run -i -t --name grafana-musl-$(BRANCH) -e BRANCH=$(BRANCH) grafana-musl-builder
 
 builder:
 	$(info ==> Making builder image)
@@ -13,7 +12,7 @@ builder:
 
 extract:
 	$(info ==> Extracting grafana distribution to local filesystem)
-	docker cp grafana-musl-$(VERSION):/dist ./dist
+	docker cp grafana-musl-$(BRANCH):/dist ./dist
 
 clean: clean-dangling
 	$(info ==> Removing build containers and builder image)
