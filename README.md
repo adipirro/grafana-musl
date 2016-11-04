@@ -23,7 +23,7 @@ A simple build container is created based on Alpine Linux. The build container s
 Should be fairly easy to parse through the script, but here is a basic overview.
 
 1. Sets up Go environment, installs required packages, clones the grafana codebase
-2. Replaces default ldflags in build.go. `-w` becomes `-w -linkmode external -extldflags '-static'`.
+2. Replaces default ldflags in build.go. `-w` becomes `-w -linkmode external -extldflags '-static'`. Some more info on that [here](https://dominik.honnef.co/posts/2015/06/go-musl/)
 3. Builds backend and frontend
 4. Removes musl incompatible `phantomjs`. **NOTE:** Causes some features to break. Working on compiling a full list.
 5. Strips binaries, removing inessential information and reducing size (that is the goal here after all)
